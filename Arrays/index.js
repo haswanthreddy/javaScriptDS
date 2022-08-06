@@ -27,6 +27,10 @@ class MyArray {
     }
 
     shiftItems (index) {
+        if (index >= this.length || index < 0){
+            throw 'index out of range';
+        }
+
         for (let i = index; i < this.length - 1; i++) {
             this.data[i] = this.data[i+1]; 
         }
@@ -48,7 +52,7 @@ arr.pop(); // O(1)
 
 console.log(arr)
 
-arr.deleteAtIndex(1); // O(n)
+arr.deleteAtIndex(2); // O(n)
 
 console.log(arr)
 
