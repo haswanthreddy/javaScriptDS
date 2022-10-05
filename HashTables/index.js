@@ -46,6 +46,22 @@ class HashTable {
             }
         }
         return keys;
+        
+    values() {
+        const values = [];
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i] && this.data[i].length) {
+                if (this.data[i].length > 1) {
+                    for (let j = 0; j < this.data[i].length; j++) {
+                        console.log(this.data[i][j], "************")
+                        values.push(this.data[i][j][1])
+                    }
+                    continue
+                }
+                values.push(this.data[i][0][1]); 
+            }      
+        }
+        return values
     }
 }
 
@@ -63,5 +79,9 @@ console.log(myhash1.get('apples')); // O(n) since size is limited and collision 
 myhash2.set('bananas',3000);
 myhash2.set('mangos',4000);
 console.log(myhash2.get('mangos')) //  O(1)
+<<<<<<< Updated upstream
 console.log(myhash1.keys());  // O(n); in case of collision O(n*m) m being the size of data stored in same hash or address 
+=======
+console.log(myhash2.values()) // same as time complexity keys
+>>>>>>> Stashed changes
 
