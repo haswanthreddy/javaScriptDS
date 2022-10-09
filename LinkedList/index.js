@@ -126,6 +126,22 @@ class LinkedList {
         this.printList()
     }
 
+    reverse () {
+        if (this.length === 1) {
+            return this
+        }
+        let first = this.head;
+        this.tail = this.head;
+        let second = this.head.next;
+        while (second) {
+            let temp = second.next
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+        this.head.next = null;
+        this.head = first;
+    }
 };
 
 
@@ -136,3 +152,5 @@ myLinkedList.prepend(11);
 myLinkedList.insert(2, 15)
 myLinkedList.remove(2)
 console.log(myLinkedList.printList());
+myLinkedList.reverse();
+console.log(myLinkedList.printList(), [16,5,10,11]);
